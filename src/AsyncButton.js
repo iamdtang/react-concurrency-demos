@@ -1,5 +1,5 @@
 import React from 'react';
-import { task, timeout, ConcurrentComponent } from './task';
+import { ConcurrentComponent, task, timeout } from 'react-concurrency';
 
 class AsyncButton extends ConcurrentComponent {
   constructor(props) {

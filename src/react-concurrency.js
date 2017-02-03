@@ -14,14 +14,10 @@ export function task(generator) {
         yielded.value.then((data) => {
           if (component._isMounted) {
             recursivelyCallNextOnIterator(data);
-          } else {
-            console.log('iterator.next() not called');
           }
         }, (e) => {
           if (component._isMounted) {
             iterator.throw(e);
-          } else {
-            console.log('iterator.throw() not called');
           }
         });
       }
