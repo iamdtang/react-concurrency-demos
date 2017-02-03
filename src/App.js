@@ -11,8 +11,8 @@ class App extends Component {
   save() {
     return new Promise(function(resolve, reject) {
       setTimeout(function() {
-        // resolve();
-        reject();
+        resolve();
+        // reject();
       }, 2000);
     });
   }

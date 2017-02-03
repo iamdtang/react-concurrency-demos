@@ -22,9 +22,12 @@ class AsyncButton extends ConcurrentComponent {
   })
 
   render() {
+    let isIdle = this.handleClick.isIdle ? 'idle' : 'processing';
+    let isRunning = this.handleClick.isRunning ? 'processing' : 'idle';
+
     return (
-      <button onClick={this.handleClick.bind(this)}>
-        {this.state.label}
+      <button onClick={this.handleClick.perform.bind(this)}>
+        {this.state.label} - {isIdle} - {isRunning}
       </button>
     );
   }
