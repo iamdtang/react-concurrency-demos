@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import AsyncButton from './Async-Button';
 
 class App extends Component {
@@ -13,30 +11,32 @@ class App extends Component {
   save() {
     return new Promise(function(resolve, reject) {
       setTimeout(function() {
-        resolve();
+        // resolve();
+        reject();
       }, 2000);
     });
   }
-  removeButton() {
-    this.setState({ showButton: false });
+  toggleButton() {
+    this.setState({ showButton: !this.state.showButton });
   }
   render() {
-    let button;
+    let asyncButton;
 
     if (this.state.showButton) {
-      button = <AsyncButton default="Save" pending="Saving ..." onClick={this.save} />
+      asyncButton = <AsyncButton
+        default="Save"
+        pending="Saving ..."
+        success="Saved"
+        error="Try Again"
+        onClick={this.save} />;
     } else {
-      button = null;
+      asyncButton = null;
     }
 
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        {button}
-        <button onClick={this.removeButton.bind(this)}>Remove Async Button</button>
+        {asyncButton}
+        <button onClick={this.toggleButton.bind(this)}>Toggle Async Button</button>
       </div>
     );
   }
