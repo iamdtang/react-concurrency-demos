@@ -1,5 +1,5 @@
 {
-  "name": "react-concurrency",
+  "name": "react-concurrency-demo",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "react": "^15.4.2",
+    "react-concurrency": "0.0.9",
     "react-dom": "^15.4.2"
   },
   "scripts": {
